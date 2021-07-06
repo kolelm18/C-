@@ -24,3 +24,37 @@ namespace _0607
         }
     }
 }
+
+
+using System;
+using System.Collections.Generic;
+
+namespace _0607
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var timeSpan = new TimeSpan(1, 2, 3);
+
+            var timeSpan1 = new TimeSpan(1, 0, 0);
+            var timeSpan2 = TimeSpan.FromHours(1);
+
+            var start = DateTime.Now;
+            var end = DateTime.Now.AddMinutes(2);
+
+            var duration = end - start;
+            Console.WriteLine("Duration: " + duration);
+
+            Console.WriteLine("Minutes: " + duration.Minutes);
+            Console.WriteLine("Total Minutes: " + duration.TotalMinutes);
+
+            Console.WriteLine("add example: " + timeSpan.Add(TimeSpan.FromMinutes(8)));
+            Console.WriteLine("subtract example: " + timeSpan.Subtract(TimeSpan.FromMinutes(2)));
+
+            Console.WriteLine("ToString " + timeSpan.ToString());
+
+            Console.WriteLine("parse: ", + TimeSpan.Parse("01:02:03"));
+        }
+    }
+}
