@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+
+namespace _0607
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var fullName = "Elias Kolb   ";
+            Console.WriteLine("Trim: '{0}'", fullName.Trim());
+            Console.WriteLine("ToUppper: '{0}'", fullName.ToUpper());
+            Console.WriteLine("ToLower: '{0}'", fullName.ToLower());
+
+            var index = fullName.IndexOf(' ');
+            var firstName = fullName.Substring(0, index);
+            var lastName = fullName.Substring((index + 1));
+            Console.WriteLine(firstName);
+            Console.WriteLine(lastName);
+
+            var names = fullName.Split(' ');
+            Console.WriteLine(names[0]);
+            Console.WriteLine(names[1]);
+
+            var names1 = fullName.Replace("Elias", "Eliasson").Split(' ');
+            Console.WriteLine(names1[0]);
+            Console.WriteLine(names1[1]);
+
+            if(String.IsNullOrWhiteSpace(" "))
+                Console.WriteLine("invalid");
+
+            var str = "25";
+            var age = Convert.ToByte(str);
+            Console.WriteLine(age);
+
+            float price = 29.95f;
+            Console.WriteLine(price.ToString("C0"));
+        }
+    }
+}
