@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+
+namespace _0607
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var numbers = new List<int>();
+
+            while (numbers.Count < 5)
+            {
+                Console.WriteLine("Write a number: ");
+                var number = Convert.ToInt32(Console.ReadLine());
+                if(numbers.Contains(number))
+                {
+                    Console.WriteLine("This number already exists. Please pick another.");
+                    continue;
+                }
+                numbers.Add(number);
+
+            }
+            numbers.Sort();
+            Console.WriteLine("\nThank you. Your numbers (sorted):");
+            foreach(var n in numbers)
+                Console.WriteLine(n);
+        }
+    }
+}
