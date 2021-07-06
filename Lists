@@ -33,3 +33,37 @@ namespace _0607
         }
     }
 }
+
+
+using System;
+using System.Collections.Generic;
+
+namespace _0607
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            var likers = new List<string>();
+
+            while(true)
+            {
+                Console.WriteLine("Type a name (or hit ENTER to quit): ");
+                var input = Console.ReadLine();
+                if (String.IsNullOrWhiteSpace(input))
+                    break;
+                likers.Add(input);
+            }
+            if (likers.Count == 1)
+                Console.WriteLine(likers[0] + " likes your post!");
+            if (likers.Count == 2)
+                Console.WriteLine(likers[0] + " and " + likers[1] + " like your post!");
+            if(likers.Count > 2)
+                Console.WriteLine(likers[0] + ", " + likers[1] + " and " + (likers.Count - 2) + " others like your post!");
+
+
+
+        }
+    }
+}
