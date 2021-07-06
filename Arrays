@@ -1,0 +1,44 @@
+using System;
+
+namespace _0607
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var numbers = new[] { 3, 7, 9, 2, 14, 6 };
+
+            Console.WriteLine("Length: " + numbers.Length);
+
+            var index = Array.IndexOf(numbers, 14);
+            Console.WriteLine("Index of 9" + index);
+
+            Console.WriteLine("CLEAR");
+
+            Array.Clear(numbers, 0, 2);
+
+            for(var i = 0; i < numbers.Length; i++)
+                Console.WriteLine(numbers[i]);
+
+            var another = new int[3];
+
+            Console.WriteLine("COPY");
+
+            Array.Copy(numbers, another, 3);
+
+            for (var i = 0; i < another.Length; i++)
+                Console.WriteLine(another[i]);
+
+            Console.WriteLine("SORT");
+
+            Array.Sort(numbers);
+            for (var i = 0; i < numbers.Length; i++)
+                Console.WriteLine(numbers[i]);
+
+            Console.WriteLine("REVERSE");
+            Array.Reverse(numbers);
+            for (var i = 0; i < numbers.Length; i++)
+                Console.WriteLine(numbers[i]);
+        }
+    }
+}
