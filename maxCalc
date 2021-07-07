@@ -1,0 +1,23 @@
+using System;
+
+namespace Project1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Type in your numbers:");
+            var input = Console.ReadLine();
+            var numbers = input.Split(',');
+            var max = Convert.ToInt32(numbers[0]);
+            for(var i=0; i < numbers.Length; i++)
+            {
+                if (Convert.ToInt32(numbers[i]) > max)
+                    max = Convert.ToInt32(numbers[i]);
+            }
+            Console.WriteLine("The maximum is {0}.", max);
+            
+        }
+        
+    }
+}
