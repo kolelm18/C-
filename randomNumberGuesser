@@ -1,0 +1,31 @@
+using System;
+
+namespace Project1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool win = false;
+            var rand = new Random().Next(1, 10);
+            Console.WriteLine("Welcome to the RANDOM NUMBER GUESSER");
+            for(var i = 0; i < 4; i++)
+            {
+                Console.WriteLine("You have {0} guesses left. Pick a number between 1 and 10: ", (4-i));
+                var guess = Convert.ToInt32(Console.ReadLine());
+                if(guess == rand)
+                {
+                    win = true;
+                    break;
+                }
+            }
+            if(win == true)
+                Console.WriteLine("\nYou won! The random number was {0}.", rand);
+            else
+                Console.WriteLine("\nYou lost! The random number was {0}.", rand);
+            Console.ReadKey();
+            
+        }
+        
+    }
+}
