@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+
+namespace Project1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var list = new List<int>();
+            Console.WriteLine("Type in your numbers:");
+            var input = Console.ReadLine();
+            if (String.IsNullOrWhiteSpace(input))
+                return;
+            foreach (var number in input.Split('-'))
+            {
+                if(list.Contains(Convert.ToInt32(number)))
+                {
+                    Console.WriteLine("Duplicate.");
+                    return;
+                }
+                list.Add(Convert.ToInt32(number));
+            }
+        }  
+    }
+}
