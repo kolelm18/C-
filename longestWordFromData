@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.IO; 
+
+namespace Project1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var list = new List<string>();
+            string[] elements;
+            var path = @"C:\Users\eko\Desktop\text.txt";
+            var text = File.ReadAllText(path);
+            elements = text.Split(' ');
+            foreach (var word in elements)
+                list.Add(Convert.ToString(word));
+            var longestWord = "";
+            foreach(var words in list)
+                if (words.Length > longestWord.Length)
+                    longestWord = words;
+            Console.WriteLine(longestWord);
+        }  
+    }
+}
