@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+
+namespace Project1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var allNumbers = new List<int>();
+            while(true)
+            {
+                Console.WriteLine("Type in anumber OR Quit:");
+                var input = Console.ReadLine();
+                if (input.ToLower() == "quit")
+                    break;
+                allNumbers.Add(Convert.ToInt32(input));
+            }
+            var uniqueNumbers = new List<int>();
+            foreach (var number in allNumbers)
+                if (uniqueNumbers.Contains(number) != true)
+                    uniqueNumbers.Add(number);
+
+            foreach(var number in uniqueNumbers)
+                Console.WriteLine(number);
+
+        }  
+    }
+}
