@@ -1,0 +1,21 @@
+using System;
+using System.Collections.Generic;
+
+namespace Project1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Type in a word:");
+            var input = Console.ReadLine().ToLower();
+            var count = 0;
+            for ( var i = 0; i < input.Length; i++)
+            {
+                if (input[i] == 'a' || input[i] == 'e' || input[i] == 'i' || input[i] == 'o' || input[i] == 'u')
+                    count++;
+            }
+            Console.WriteLine("Vowels:" + count);
+        }  
+    }
+}
