@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+
+namespace Project1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var list = new List<int>();
+            Console.WriteLine("Type in your numbers: ");
+            var input = Console.ReadLine();
+            foreach (var n in input.Split('-'))
+                list.Add(Convert.ToInt32(n));
+            bool isConsecutiveUp = true;
+            bool isConsecutiveDown = true;
+            for(var i = 0; i < (list.Count -1); i++)
+                if (list[i] != (list[i+1] - 1))
+                    isConsecutiveUp = false;
+            for (var i = 0; i < (list.Count - 1); i++)
+                if (list[i] != (list[i+1] + 1))
+                    isConsecutiveDown = false;
+            if(isConsecutiveDown)
+                Console.WriteLine("\nThis is descending consecutive.");
+            else if (isConsecutiveUp)
+                Console.WriteLine("\nThis is ascending consecutive.");
+            else
+                Console.WriteLine("\nThis is not consecutive.");
+        }  
+    }
+}
