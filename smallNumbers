@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+
+namespace Project1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var list = new List<int>();
+            string[] elements;
+            Console.WriteLine("Put in your numbers:");
+            var input = Console.ReadLine();
+            if ((input.Split(",").Length < 5) || String.IsNullOrWhiteSpace(input))
+            {
+                Console.WriteLine("Invalid list.");
+                return;
+            }           
+            elements = input.Split(",");
+            foreach (var num in elements)
+                list.Add(Convert.ToInt32(num));
+            list.Sort();
+            Console.WriteLine("\nThe 3 smallest numbers:");
+            for (var i = 0; i < 3; i++)
+                Console.WriteLine(list[i]);           
+        }  
+    }
+}
