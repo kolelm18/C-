@@ -1,0 +1,22 @@
+using System;
+using System.Collections.Generic;
+
+namespace Project1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Type in time:");
+            var input = Console.ReadLine();
+            var components = input.Split(':');
+            if (components.Length != 2 || Convert.ToInt32(components[0]) < 0 || Convert.ToInt32(components[0]) > 23
+                || Convert.ToInt32(components[1]) < 0 || Convert.ToInt32(components[1]) > 60)
+            {
+                Console.WriteLine("Invalid");
+                return;
+            }
+            Console.WriteLine("Valid");
+        }  
+    }
+}
