@@ -1,30 +1,33 @@
 using System;
 using System.Collections.Generic;
 
-namespace _0607
+namespace Project1
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var numbers = new List<int>();
-
-            while (numbers.Count < 5)
+            var list = new List<int>();
+            Console.WriteLine("How many numbers would you like to sort?");
+            var count = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
+            while(true)
             {
-                Console.WriteLine("Write a number: ");
-                var number = Convert.ToInt32(Console.ReadLine());
-                if(numbers.Contains(number))
-                {
-                    Console.WriteLine("This number already exists. Please pick another.");
-                    continue;
-                }
-                numbers.Add(number);
-
+                Console.WriteLine("Type in number {0}:", (list.Count +1));
+                var input = Console.ReadLine();
+                Console.Clear();
+                if (list.Contains(Convert.ToInt32(input)))
+                    Console.WriteLine("This number already exists. Please try again.");
+                else
+                    list.Add(Convert.ToInt32(input));
+                if (list.Count == count)
+                    break;
             }
-            numbers.Sort();
-            Console.WriteLine("\nThank you. Your numbers (sorted):");
-            foreach(var n in numbers)
+            list.Sort();
+            Console.WriteLine("Your numbers sorted:");
+            foreach(var n in list)
                 Console.WriteLine(n);
-        }
+            Console.ReadKey();
+        }  
     }
 }
