@@ -17,13 +17,19 @@ namespace Project1
                 allNumbers.Add(Convert.ToInt32(input));
             }
             var uniqueNumbers = new List<int>();
+            var doubleNumbers = new List<int>();
             foreach (var number in allNumbers)
-                if (uniqueNumbers.Contains(number) != true)
-                    uniqueNumbers.Add(number);
-
+            {
+                if (uniqueNumbers.Contains(number) || doubleNumbers.Contains(number))
+                {
+                    doubleNumbers.Add(number);
+                    uniqueNumbers.Remove(number);
+                }
+                else
+                    uniqueNumbers.Add(number);                    
+            }
             foreach(var number in uniqueNumbers)
                 Console.WriteLine(number);
-
         }  
     }
 }
