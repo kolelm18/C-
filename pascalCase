@@ -1,0 +1,21 @@
+using System;
+using System.Collections.Generic;
+
+namespace Project1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Input:");
+            var input = Console.ReadLine();
+            var output = "";
+            foreach (var word in input.Split(' '))
+            {
+                var wordPascal = char.ToUpper(word[0]) + word.Substring(1).ToLower();
+                output = output + wordPascal;
+            }
+            Console.WriteLine("\nOutput:\n" + output);
+        }  
+    }
+}
