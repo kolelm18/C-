@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+namespace Project1
+{
+    class Program
+    {
+        public class Stopwatch
+        {
+            private DateTime startTime;
+            private DateTime stopTime;
+            TimeSpan timeSpan;
+          
+            public void Start()
+            {
+                startTime = DateTime.Now;
+            }
+            public void Stop()
+            {
+                stopTime = DateTime.Now;
+                timeSpan = stopTime - startTime;
+            }
+            
+            public TimeSpan GetSpan()
+            {
+                return timeSpan;
+            }
+
+        }
+        static void Main(string[] args)
+        {
+            var stopwatch = new Stopwatch();
+            Console.WriteLine("Press ENTER to start");
+            var input = Console.ReadLine();
+            if (input != null)
+                stopwatch.Start();
+            Console.WriteLine("Press ENTER to stop");
+            input = Console.ReadLine();
+            if (input != null)
+                stopwatch.Stop();
+            Console.WriteLine("Time:\n" + stopwatch.GetSpan());
+        } 
+    }
+}
