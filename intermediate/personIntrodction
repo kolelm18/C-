@@ -23,9 +23,8 @@ namespace Project1
     {
         static void Main(string[] args)
         {
-            var person = Person.Parse("John");
-            person.Introduce("Mosh");
-            
+            var p = Person.Parse("John");
+            p.Introduce("Mosh");
         }  
     }
 }
