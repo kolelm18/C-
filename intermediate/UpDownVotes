@@ -1,0 +1,64 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+
+namespace Project1
+{
+    class Program
+    {
+        public class Post
+        {
+            public string Title;
+            public DateTime CreateTime;
+            private int UpVotes;
+            private int DownVotes;
+
+            public Post(string title, DateTime createTime)
+            {
+                this.Title = title;
+                this.CreateTime = createTime;
+                this.UpVotes = 0;
+                this.DownVotes = 0;
+            }
+            public void VoteUp()
+            {
+                this.UpVotes++;
+            }
+            public void VoteDown()
+            {
+                this.DownVotes++;
+            }
+            public int GetUpVotes()
+            {
+                return this.UpVotes;
+            }
+            public int GetDownVotes()
+            {
+                return this.DownVotes;
+            }
+        }
+          
+        static void Main(string[] args)
+        {
+
+            var post = new Post("Testpost", DateTime.Now);
+            int input;
+            while (true)
+            {
+                Console.WriteLine("1...Vote Up\n2...Vote Down\n3...See Info\n4...End");
+                input = Convert.ToInt32(Console.ReadLine());
+                if (input == 1)
+                    post.VoteUp();
+                if (input == 2)
+                    post.VoteDown();
+                if(input == 3)
+                    Console.WriteLine("\n\n{0}, created {1}\nUpvotes: {2}\nDownvotes: {3}\n\n", 
+                        post.Title, post.CreateTime, post.GetUpVotes(), post.GetDownVotes());
+                if (input == 4)
+                    return;
+            }
+            
+        } 
+    }
+}
