@@ -65,6 +65,13 @@ namespace Project1
             else
                 return false;
         }
+        public bool Equals(Kaffeemaschine other)
+        {
+            if (this.wasser == other.wasser && this.bohnen == other.bohnen)
+                return true;
+            else
+                return false;
+        }
     }
     public class KaffeGescheft
     {
@@ -86,12 +93,33 @@ namespace Project1
         {
             setPreisProKg(preis);
         }
-        public double kaufeKaffee (Kaffeemaschine maschine, double menge)
+        public double kaufeKaffee(Kaffeemaschine maschine, double menge)
         {
             double tatsMenge = maschine.bohnenAuffuellen(menge);
             return tatsMenge * getPreisProKg();
         }
-        
+    }
+    public class Angleichung
+    {
+        public void kaffeemschinenAngleichen(Kaffeemaschine maschine1, Kaffeemaschine maschine2)
+        {
+            if (maschine1.wasser < maschine2.wasser)
+                maschine1.wasserAuffuellen(maschine2.wasser);
+            if (maschine2.wasser < maschine1.wasser)
+                maschine2.wasserAuffuellen(maschine1.wasser);
+            if (maschine1.bohnen < maschine2.bohnen)
+                maschine1.bohnenAuffuellen(maschine2.bohnen);
+            if (maschine2.bohnen < maschine1.bohnen)
+                maschine2.bohnenAuffuellen(maschine1.bohnen);
+        }
+
+        public void fuellMich(Kaffeemaschine maschine, double zuErreichenderFuellstand)
+        {
+            if (maschine.wasser < zuErreichenderFuellstand)
+                maschine.wasserAuffuellen(zuErreichenderFuellstand);
+        }
+
+    }
     class Program
     {
         static void Main(string[] args)
