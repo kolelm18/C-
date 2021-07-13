@@ -1,0 +1,102 @@
+using System.IO;
+using System.Collections;
+using System;
+
+
+namespace Project1
+{
+
+    public class Kaffeemaschine
+    {
+        public double wasser { get; private set; }
+        public double bohnen { get; private set; }
+        public double gesamtMengeKaffeeProduziert { get; private set; }
+
+        public static double maxWasser = 2.5;
+        public static double maxBohnen = 2.5;
+        public Kaffeemaschine()
+        {
+            wasser = 0;
+            bohnen = 0;
+            gesamtMengeKaffeeProduziert = 0;
+        }
+        public double wasserAuffuellen(double menge)
+        {
+            if (menge > (maxWasser - wasser))
+            {
+                double tatsaechlMenge = maxWasser - wasser;
+                wasser = wasser + tatsaechlMenge;
+                return tatsaechlMenge;
+            }
+            else
+            {
+                wasser = wasser + menge;
+                return menge;
+            }
+                
+        }
+        public double bohnenAuffuellen(double menge)
+        {
+            if(menge > (maxBohnen - bohnen))
+            {
+                double tatsaechlMenge = maxBohnen - bohnen;
+                bohnen = bohnen + tatsaechlMenge;
+                return tatsaechlMenge;
+            }
+            else
+            {
+                bohnen = bohnen + menge;
+                return menge;
+            }
+        }
+        public bool macheKaffee(double menge, double verhaeltnisWasserBohnen)
+        {
+            if (menge <= 0 || verhaeltnisWasserBohnen <= 0)
+                return false;
+            double mengeBohnen = menge / (verhaeltnisWasserBohnen + 1);
+            double mengeWasser = menge - mengeBohnen;
+            if (mengeBohnen <= bohnen && mengeWasser <= wasser)
+            {
+                wasser = wasser - mengeWasser;
+                bohnen = bohnen - mengeBohnen;
+                gesamtMengeKaffeeProduziert = gesamtMengeKaffeeProduziert + menge;
+                return true;
+            }
+            else
+                return false;
+        }
+    }
+    public class KaffeGescheft
+    {
+        private double _preisProKg;
+        public bool setPreisProKg(double preis)
+        {
+            bool rv = true;
+            if (preis >= 5 && preis <= 30)
+                _preisProKg = preis;
+            else
+                rv = false;
+            return rv;
+        }
+        public double getPreisProKg()
+        {
+            return _preisProKg;
+        }
+        public KaffeGescheft(double preis)
+        {
+            setPreisProKg(preis);
+        }
+        public double kaufeKaffee (Kaffeemaschine maschine, double menge)
+        {
+            double tatsMenge = maschine.bohnenAuffuellen(menge);
+            return tatsMenge * getPreisProKg();
+        }
+        
+    class Program
+    {
+        static void Main(string[] args)
+        {
+         
+        }
+    }
+}
